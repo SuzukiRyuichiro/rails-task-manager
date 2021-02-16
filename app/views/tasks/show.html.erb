@@ -8,3 +8,11 @@
   <%= link_to 'Back', tasks_path, class: 'btn btn-primary' %>
 </div>
 
+<div>
+  <%= form_for(@task) do |f| %>
+    <%= f.text_field :title %>
+    <%= f.text_field :details %>
+  <% end %>
+  <%= link_to "Save", edit_task %>
+</div>
+
