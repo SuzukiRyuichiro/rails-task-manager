@@ -2,18 +2,22 @@
   <div class="row">
     <h1>MY Tasks</h1>
   </div>
+  <div class="row border-bottom py-5">
   <% @tasks.each do |task| %>
-  <div class="col-4 flash flash-success alert alert-dismissible fade show"">
-      <input type="checkbox" id="task_complete" name="task_complete" value="hello">
-    <span><strong><h3><%= task.title %></h3></strong></span>
-    <a href="/" data-dismiss="alert" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </a>
+    <div class="col-6 flash flash-warning alert alert-dismissible fade show">
+        <input type="checkbox" id="task_complete" name="task_complete" <%= "checked='checked'" if task.completed %>>
+      <span><strong><h3><%= task.title %></h3></strong></span>
+        <%= link_to "details", task_path(task), class: 'btn btn-primary' %>
+      <a href="/" data-dismiss="alert" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
+    <% end %>
   </div>
-  <% end %>
+  <div>
+    <%= link_to "add task", tasks_path %>
   </div>
 </div>
-
 
 
 
